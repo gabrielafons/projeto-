@@ -16,7 +16,22 @@ int criar(Tarefa tarefas[], int *pos){
   
 }
 int deletar(Tarefa tarefas[], int *pos){
-printf("funcao de deletar tarefas\n");
+if(*pos == 0)
+  return 1;{
+
+int pos_d;
+printf("Entre com a posição da tarefa: ");
+scanf("%d", &pos_d);
+if(pos_d >= *pos)
+  return 2;
+
+for(int i = pos_d; i < *pos - 1; i++){
+  tarefas[i].prioridade = tarefas[i+1].prioridade;
+  strcpy(tarefas[i].categoria, tarefas[i+1].categoria);
+  strcpy(tarefas[i].descricao, tarefas[i+1].descricao);
+}
+  
+  }
 return 0;
 }
 int listar(Tarefa tarefas[], int *pos){
